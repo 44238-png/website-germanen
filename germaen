@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De Germanen - Historische Winkel</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #171510;
+    color: #f5ead5;
+}
+
+header {
+    background: #282116;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 3px solid #b58b42;
+}
+
+header h1 {
+    color: #d9ad60;
+    font-size: 36px;
+    margin: 0;
+}
+
+header p {
+    color: #d0c1a5;
+}
+
+.hero {
+    text-align: center;
+    padding: 45px 20px 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #e0b66e;
+}
+
+.product, .form-container {
+    max-width: 650px;
+    margin: 30px auto 60px;
+    background: #292319;
+    border: 2px solid #8f713e;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+}
+
+.shield {
+    font-size: 120px;
+}
+
+.product h2 {
+    color: #e0b66e;
+    font-size: 30px;
+}
+
+.description {
+    color: #d2c5ad;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.price {
+    font-size: 36px;
+    color: #e6bd70;
+    font-weight: bold;
+    margin: 25px;
+}
+
+button {
+    background: #a77932;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c3944c;
+}
+
+.form-container {
+    display: none;
+    text-align: left;
+}
+
+.form-container h2 {
+    color: #e0b66e;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #a77932;
+    background: #171510;
+    color: white;
+    font-size: 16px;
+}
+
+.form-price {
+    text-align: center;
+    color: #e6bd70;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.form-container button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.success {
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.success h2 {
+    color: #e0b66e;
+    font-size: 30px;
+}
+
+.success-icon {
+    font-size: 65px;
+}
+
+footer {
+    background: #282116;
+    text-align: center;
+    padding: 25px;
+    color: #b9a98c;
+    border-top: 2px solid #8f713e;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>⚔ DE GERMANEN ⚔</h1>
+    <p>Ontdek de kracht van vroeger</p>
+</header>
+
+<section class="hero">
+    <h2>Een schild uit de tijd van de Germanen</h2>
+    <p>Haal een stukje geschiedenis in huis!</p>
+</section>
+
+<section class="product" id="product">
+
+    <div class="shield">🛡️</div>
+
+    <h2>Het Germaanse Schild</h2>
+
+    <p class="description">
+        Dit schild is geïnspireerd op de schilden uit
+        de tijd van de Germanen. Een stoer historisch
+        ontwerp dat je meeneemt naar vroeger.
+    </p>
+
+    <div class="price">€100,-</div>
+
+    <button onclick="openForm()">
+        Bestel jouw schild
+    </button>
+
+</section>
+
+<section class="form-container" id="bestelformulier">
+
+    <h2>⚔ Jouw bestelling ⚔</h2>
+    <p>Vul hieronder je gegevens in.</p>
+
+    <form onsubmit="bestelling(event)">
+
+        <label for="naam">Volledige naam</label>
+        <input id="naam" type="text" required>
+
+        <label for="email">E-mailadres</label>
+        <input id="email" type="email" required>
+
+        <label for="adres">Straat en huisnummer</label>
+        <input id="adres" type="text" required>
+
+        <label for="postcode">Postcode</label>
+        <input id="postcode" type="text" required>
+
+        <label for="woonplaats">Woonplaats</label>
+        <input id="woonplaats" type="text" required>
+
+        <div class="form-price">
+            Totaal: €100,-
+        </div>
+
+        <button type="submit">
+            Bestelling bevestigen
+        </button>
+
+    </form>
+
+</section>
+
+<footer>
+    <p>© 2026 De Germanen | Historische Winkel</p>
+</footer>
+
+<script>
+
+function openForm() {
+    document.getElementById("bestelformulier").style.display = "block";
+
+    document.getElementById("bestelformulier").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function bestelling(event) {
+    event.preventDefault();
+
+    document.getElementById("bestelformulier").innerHTML = `
+        <div class="success">
+            <div class="success-icon">✅</div>
+
+            <h2>BESTELLING VERSTUURD!</h2>
+
+            <p style="font-size:19px;">
+                Bedankt voor je bestelling!
+            </p>
+
+            <p>
+                Je bestelling voor het Germaanse schild
+                van €100 is bevestigd in deze demonstratie.
+            </p>
+
+            <p style="color:#e0b66e;">
+                Bedankt voor je bezoek aan De Germanen!
+            </p>
+        </div>
+    `;
+
+    document.getElementById("bestelformulier").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
